@@ -2,6 +2,11 @@
 
 ## Day 1 
 
+1. Introduction - history
+
+2. Why golang?
+
+[Twitter thread](https://twitter.com/vanquisher3498/status/1502168532007620615)
 ## Day 2 
 
 Tasks:
