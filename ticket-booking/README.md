@@ -36,6 +36,14 @@ Final goal = Build a Conference Ticket booking App
 
 ## Day 4 
 
+1. Getting input from users.
+
+2. Type conversion
+
+[Commit ID for Day 4](https://github.com/Prajwalmithun/golang/commit/7857ff13d5a647f0039930c975bc5c9ed6f3da7e)
+
+[Twitter thread](https://twitter.com/vanquisher3498/status/1504058753137577984)
+
 ## Day 5 
 
 ## Day 6 
