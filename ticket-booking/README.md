@@ -57,9 +57,9 @@ Final goal = Build a Conference Ticket booking App
 
 3. Loops
 
-[Commit ID for Day 5]()
+[Commit ID for Day 5](https://github.com/Prajwalmithun/golang/commit/d9da3b96d7675da9ef0615e6ab54c9d7eff94e7e)
 
-[Twitter thread]()
+[Twitter thread](https://twitter.com/vanquisher3498/status/1504415039842791426)
 
 ## Day 6 
 
