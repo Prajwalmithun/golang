@@ -51,6 +51,16 @@ Final goal = Build a Conference Ticket booking App
 
 ## Day 5 
 
+1. Arrays in Golang
+
+2. Slices 
+
+3. Loops
+
+[Commit ID for Day 5]()
+
+[Twitter thread]()
+
 ## Day 6 
 
 ## Day 7 
