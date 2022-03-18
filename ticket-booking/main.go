@@ -36,7 +36,7 @@ func main()  {
 	// OR
 	// bookings2 := []string{} 
 
-	fmt.Print("Welcome to", conferenceName, "booking application \n")
+	fmt.Print("Welcome to ", conferenceName, " booking application \n")
 	fmt.Printf("We have total of %v tickets and remaining tickets are %v \n", totalConferenceTickets,remainingTickets)
 	fmt.Println("Get your tickets here to attend")
 
@@ -46,50 +46,66 @@ func main()  {
 	// fmt.Println(remainingTickets)        							// returns the value
 	// fmt.Println(&remainingTickets)       							// returns the memory address of the value  
 
-	/*
-		infinte for loop to get the user details. 
-	*/
-	for {
-		fmt.Println("Enter your first Name")
-		fmt.Scan(&firstName)                 								// get the input from the users.
-
-		fmt.Println("Enter your last Name")
-		fmt.Scan(&lastName)
-
-		fmt.Println("Enter your email address")
-		fmt.Scan(&email)
-
-		fmt.Println("Enter the number of tickets")
-		fmt.Scan(&userTickets)
-
-		// bookings[0] = firstName + " " + lastName              			// adding elements in "array"
-		bookings = append(bookings, firstName + " " + lastName)  			// adding elements to "slices"
-
-		// logic of this app
-		remainingTickets = remainingTickets - uint(userTickets)
-
-		fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation to your email %v\n", firstName,lastName,userTickets,email)
-		fmt.Printf("%v remaining tickets.\n",remainingTickets)
-
-		// display only the firstName of the users
-		var firstNames []string 
-		
-		//for index, fullName := range bookings{
-		for _, fullName := range bookings{                                  // "_" blank identifier, ignore a variable that is unused
-
-			var fullNames = strings.Fields(fullName)
-			firstNames = append(firstNames, fullNames[0])
-		}
-
-		fmt.Printf("The first names of bookings %v\n",firstNames)
-		fmt.Printf("These are all our bookings %v\n",bookings)
-
-	}
+		/*
+			infinte for loop to get the user details. 
+		*/
+		for remainingTickets != 0 {
+				fmt.Println("Enter your first Name")
+				fmt.Scan(&firstName)                 								// get the input from the users.
 	
+				fmt.Println("Enter your last Name")
+				fmt.Scan(&lastName)
+	
+				fmt.Println("Enter your email address")
+				fmt.Scan(&email)
+			
+				fmt.Println("Enter the number of tickets")
+				fmt.Scan(&userTickets)
 
+
+				var isValidName bool = len(firstName) > 2 && len(lastName) > 2
+				var isValidEmail bool = strings.Contains(email,"@")
+				var isValidUserTickets bool = userTickets > 0 && userTickets <= int(remainingTickets)
+
+				if isValidUserTickets && isValidEmail && isValidName {
+
+					// bookings[0] = firstName + " " + lastName              			// adding elements in "array"
+					bookings = append(bookings, firstName + " " + lastName)  			// adding elements to "slices"
+	
+					// logic of this app
+					remainingTickets = remainingTickets - uint(userTickets)
+	
+					fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation to your email %v\n", firstName,lastName,userTickets,email)
+					fmt.Printf("%v remaining tickets.\n",remainingTickets)
+	
+					// display only the firstName of the users
+					var firstNames []string 
+			
+					//for index, fullName := range bookings{
+					for _, fullName := range bookings{                                  // "_" blank identifier, ignore a variable that is unused
+	
+						var fullNames = strings.Fields(fullName)
+						firstNames = append(firstNames, fullNames[0])
+					}
+						fmt.Printf("The first names of bookings %v\n",firstNames)
+						fmt.Printf("These are all our bookings %v\n",bookings)
+						continue
+				}else if userTickets > totalConferenceTickets || userTickets > int(remainingTickets){
+						fmt.Printf("We only have %v of total tickets and %v are remaining.\n",totalConferenceTickets,remainingTickets)	
+						continue
+					
+				}else {
+						//fmt.Printf("We only have %v of total tickets and %v are remaining.\n",totalConferenceTickets,remainingTickets)
+						fmt.Printf("Your input is invalid, try again \n")
+						continue
+				}		
+		} 
+
+		if remainingTickets == 0{
+			fmt.Printf("Tickets are sold out, see you next year\n")
+		}
 	// fmt.Printf("Whole array %v \n", bookings)
 	// fmt.Printf("First element of the array %v\n",bookings[0])
 	// fmt.Printf("Type of the array %T \n", bookings)
 	// fmt.Printf("Length of the array %v \n", len(bookings))
-
 }

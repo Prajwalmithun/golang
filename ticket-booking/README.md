@@ -63,6 +63,14 @@ Final goal = Build a Conference Ticket booking App
 
 ## Day 6 
 
+1. if conditions
+
+2. Input validation and Boolean
+
+[Commit ID for Day 6]()
+
+[Twitter thread]()
+
 ## Day 7 
 
 ## Day 8 
