@@ -2,11 +2,11 @@
 	This code is for "Conference Ticket Booking Application"
 */
 
-package main //"main" just a standard way, but it can be anything
+package main 															//"main" just a standard way, but it can be anything
 
 import (
-	"fmt" //fmt is builtin package for formating, like displaying output to std output
-	"strings"
+	"fmt" 																//fmt is builtin package for formating, like displaying output to std output
+	"strings"															// strings is builting package for handling strings
 )
 
 // entry point to the complier
@@ -36,9 +36,7 @@ func main()  {
 	// OR
 	// bookings2 := []string{} 
 
-	fmt.Print("Welcome to ", conferenceName, " booking application \n")
-	fmt.Printf("We have total of %v tickets and remaining tickets are %v \n", totalConferenceTickets,remainingTickets)
-	fmt.Println("Get your tickets here to attend")
+	greetUsers(conferenceName, totalConferenceTickets, remainingTickets)
 
 	// userName = "John"
 	// userTickets = 5
@@ -96,8 +94,18 @@ func main()  {
 					
 				}else {
 						//fmt.Printf("We only have %v of total tickets and %v are remaining.\n",totalConferenceTickets,remainingTickets)
-						fmt.Printf("Your input is invalid, try again \n")
-						continue
+						
+						if !isValidName{
+							fmt.Printf("First name or last name is too short\n")
+						}
+
+						if !isValidEmail{
+							fmt.Printf("email address doesnt contain @ sign\n")
+						}
+
+						if !isValidUserTickets{
+							fmt.Printf("Number of tickets entered are invalid\n")
+						}
 				}		
 		} 
 
@@ -108,4 +116,29 @@ func main()  {
 	// fmt.Printf("First element of the array %v\n",bookings[0])
 	// fmt.Printf("Type of the array %T \n", bookings)
 	// fmt.Printf("Length of the array %v \n", len(bookings))
+
+	// Switch statements
+	// var city = "Mysore"
+
+	// switch city {
+	// 	case "Bangalore, Tumkur, Mysore":
+	// 		// code for bangalore 
+	// 	case "Mumbai, Pune":
+	// 		// code for mumbai
+	// 	case "Delhi":
+	// 		// code for delhi
+	// 	case "Kolkata":
+	// 		// code for kolkata
+	// 	case "Chennai, Coimbatore":
+	// 		// code for chennai
+	// 	default:
+	// 		// if city doesnt match to the above
+	// }
+}
+
+func greetUsers(confName string, totTickets int, remTickets uint) {
+	fmt.Print("Welcome to ", confName, " booking application \n")
+	fmt.Printf("We have total of %v tickets and remaining tickets are %v \n", totTickets,remTickets)
+	fmt.Println("Get your tickets here to attend")
+	
 }

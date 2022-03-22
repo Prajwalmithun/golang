@@ -67,9 +67,9 @@ Final goal = Build a Conference Ticket booking App
 
 2. Input validation and Boolean
 
-[Commit ID for Day 6]()
+[Commit ID for Day 6](https://github.com/Prajwalmithun/golang/commit/ceaaa98cade91adba6b0c9ffee4d594992a094c7)
 
-[Twitter thread]()
+[Twitter thread](https://twitter.com/vanquisher3498/status/1504804670660747267)
 
 ## Day 7 
 
