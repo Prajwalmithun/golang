@@ -73,7 +73,23 @@ Final goal = Build a Conference Ticket booking App
 
 ## Day 7 
 
+1. Switch Statements
+
+2. Functions
+
+[Commit ID for Day 7](https://github.com/Prajwalmithun/golang/commit/d3021075bc4ef09cd2854306bc6767b56badbff4)
+
+[Twitter thread](https://twitter.com/vanquisher3498/status/1506241677375131652)
+
 ## Day 8 
+
+1. Returning values from a function
+
+2. Package level variables
+
+[Commit ID for Day 8]()
+
+[Twitter thread]()
 
 ## Day 9 
 
