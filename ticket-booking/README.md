@@ -87,12 +87,19 @@ Final goal = Build a Conference Ticket booking App
 
 2. Package level variables
 
-[Commit ID for Day 8]()
+[Commit ID for Day 8](https://t.co/rFmXbKwThx)
 
-[Twitter thread]()
+[Twitter thread](https://twitter.com/vanquisher3498/status/1506585189828349952)
 
 ## Day 9 
 
+1. Packages in Golang
+
+2. Level of Scope
+
+[Commit ID for Day 9](https://t.co/MRxava8tUj)
+
+[Twitter Thread](https://twitter.com/vanquisher3498/status/1506889253246017538)
 ## Day 10 
 
 ## Day 11 
