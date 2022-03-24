@@ -6,7 +6,8 @@ package main //"main" just a standard way, but it can be anything
 
 import (
 	"fmt"     //fmt is builtin package for formating, like displaying output to std output
-	"strings" // strings is builting package for handling strings
+	"strings"
+	"booking-app/helper" // strings is builting package for handling strings
 )
 
 // package level variables
@@ -40,7 +41,7 @@ func main() {
 	*/
 	for remainingTickets != 0 {
 		firstName, lastName, email, userTickets := getUserDetails()
-		isValidName, isValidEmail, isValidUserTickets := validateUserInput(firstName, lastName, email, userTickets)
+		isValidName, isValidEmail, isValidUserTickets := helper.ValidateUserInput(firstName, lastName, email, userTickets, remainingTickets)
 
 		if isValidUserTickets && isValidEmail && isValidName {
 
@@ -51,7 +52,7 @@ func main() {
 			printFirstNames()
 
 		} else if userTickets > totalConferenceTickets || userTickets > int(remainingTickets) {
-			fmt.Printf("We have %v(remaining)/%v(total) tickets remaining \n", totalConferenceTickets, remainingTickets)
+			fmt.Printf("Sorry:( We only have %v tickets remaining. \n",remainingTickets)
 
 		} else {
 			//fmt.Printf("We only have %v of total tickets and %v are remaining.\n",totalConferenceTickets,remainingTickets)
@@ -61,7 +62,7 @@ func main() {
 			}
 
 			if !isValidEmail {
-				fmt.Printf("email address doesnt contain @ sign\n")
+				fmt.Printf("email address must contain @ and .\n")
 			}
 
 			if !isValidUserTickets {
@@ -77,9 +78,8 @@ func main() {
 
 func greetUsers() {
 	fmt.Print("Welcome to ", conferenceName, " booking application \n")
-	fmt.Printf("We have %v/%v tickets remaining \n", totalConferenceTickets, remainingTickets)
+	fmt.Printf("We have a total of %v tickets remaining with us, book faster.\n",remainingTickets)
 	fmt.Println("Get your tickets here to attend")
-
 }
 
 func getUserDetails() (string, string, string, int) {
@@ -117,13 +117,6 @@ func printFirstNames() {
 	fmt.Printf("These are all our bookings %v\n", bookings)
 }
 
-func validateUserInput(firstName string, lastName string, email string, userTickets int) (bool, bool, bool) {
-	var isValidName bool = len(firstName) > 2 && len(lastName) > 2
-	var isValidEmail bool = strings.Contains(email, "@")
-	var isValidUserTickets bool = userTickets > 0 && userTickets <= int(remainingTickets)
-
-	return isValidName, isValidEmail, isValidUserTickets
-}
 
 func bookTicket(firstName string, lastName string, email string, userTickets int) {
 	// bookings[0] = firstName + " " + lastName              			// adding elements in "array"
