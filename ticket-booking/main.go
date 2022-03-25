@@ -5,9 +5,8 @@
 package main //"main" just a standard way, but it can be anything
 
 import (
-	"fmt"     //fmt is builtin package for formating, like displaying output to std output
-	"strings"
-	"booking-app/helper" // strings is builting package for handling strings
+	"fmt" //fmt is builtin package for formating, like displaying output to std output
+	"strconv"
 )
 
 // package level variables
@@ -25,11 +24,11 @@ var remainingTickets uint = 50    // TO store remaining tickets.
 //var bookings = [50]string {"prajwal", "kushal"}     				// arrays in golang
 
 // var bookings [50]string                      					// array to store the names of the users who booked the ticket
-var bookings []string // "slices" -> dynamic array
+var bookings []map[string]string // "slices" -> dynamic array
 // OR
-// var bookings1 = []string{}
+// var bookings1 = make([]map[string]string)
 // OR
-// bookings2 := []string{}
+// bookings2 := map([]map[string]string)
 
 // entry point to the complier
 func main() {
@@ -41,7 +40,7 @@ func main() {
 	*/
 	for remainingTickets != 0 {
 		firstName, lastName, email, userTickets := getUserDetails()
-		isValidName, isValidEmail, isValidUserTickets := helper.ValidateUserInput(firstName, lastName, email, userTickets, remainingTickets)
+		isValidName, isValidEmail, isValidUserTickets := ValidateUserInput(firstName, lastName, email, userTickets, remainingTickets)
 
 		if isValidUserTickets && isValidEmail && isValidName {
 
@@ -52,7 +51,7 @@ func main() {
 			printFirstNames()
 
 		} else if userTickets > totalConferenceTickets || userTickets > int(remainingTickets) {
-			fmt.Printf("Sorry:( We only have %v tickets remaining. \n",remainingTickets)
+			fmt.Printf("Sorry:( We only have %v tickets remaining. \n", remainingTickets)
 
 		} else {
 			//fmt.Printf("We only have %v of total tickets and %v are remaining.\n",totalConferenceTickets,remainingTickets)
@@ -78,7 +77,7 @@ func main() {
 
 func greetUsers() {
 	fmt.Print("Welcome to ", conferenceName, " booking application \n")
-	fmt.Printf("We have a total of %v tickets remaining with us, book faster.\n",remainingTickets)
+	fmt.Printf("We have a total of %v tickets remaining with us, book faster.\n", remainingTickets)
 	fmt.Println("Get your tickets here to attend")
 }
 
@@ -108,22 +107,30 @@ func printFirstNames() {
 	var firstNames []string
 
 	//for index, fullName := range bookings{
-	for _, fullName := range bookings { // "_" blank identifier, ignore a variable that is unused
-
-		var fullNames = strings.Fields(fullName)
-		firstNames = append(firstNames, fullNames[0])
+	for _, booking := range bookings { // "_" blank identifier, ignore a variable that is unused
+		
+		firstNames = append(firstNames,booking["firstName"])
 	}
 	fmt.Printf("The first names of bookings %v\n", firstNames)
 	fmt.Printf("These are all our bookings %v\n", bookings)
 }
 
-
 func bookTicket(firstName string, lastName string, email string, userTickets int) {
-	// bookings[0] = firstName + " " + lastName              			// adding elements in "array"
-	bookings = append(bookings, firstName+" "+lastName) // adding elements to "slices"
 
 	// logic of this app
 	remainingTickets = remainingTickets - uint(userTickets)
+
+	// create a empty map to store user's details
+	var userData = make(map[string]string)      // make() : to create empty map
+	
+	userData["firstName"] = firstName
+	userData["lastName"] = lastName
+	userData["email"] = email
+	userData["numberOfTickets"] = strconv.FormatUint(uint64(userTickets), 10) 
+
+	bookings = append(bookings, userData) // adding elements to "slices"
+
+	fmt.Printf("List of bookings is %v\n", bookings)
 
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation to your email %v\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v remaining tickets.\n", remainingTickets)
