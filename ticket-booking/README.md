@@ -102,8 +102,19 @@ Final goal = Build a Conference Ticket booking App
 [Twitter Thread](https://twitter.com/vanquisher3498/status/1506889253246017538)
 ## Day 10 
 
+1. Maps
+
+[Commit ID for Day 10](https://t.co/PbkWNchILv)
+
+[Twitter Thread](https://twitter.com/vanquisher3498/status/1507324298532294657)
+
 ## Day 11 
 
+1. Struct 
+
+[Commit ID for Day 11](https://t.co/GxWqkGeIro)
+
+[Twitter Thread](https://twitter.com/vanquisher3498/status/1507604164754362368)
 ## Day 12 
 
 ## Day 13 
