@@ -6,7 +6,6 @@ package main //"main" just a standard way, but it can be anything
 
 import (
 	"fmt" //fmt is builtin package for formating, like displaying output to std output
-	"strconv"
 )
 
 // package level variables
@@ -24,11 +23,20 @@ var remainingTickets uint = 50    // TO store remaining tickets.
 //var bookings = [50]string {"prajwal", "kushal"}     				// arrays in golang
 
 // var bookings [50]string                      					// array to store the names of the users who booked the ticket
-var bookings []map[string]string // "slices" -> dynamic array
+var bookings = make([]UserData,0) 
 // OR
 // var bookings1 = make([]map[string]string)
 // OR
 // bookings2 := map([]map[string]string)
+
+
+type UserData struct {
+	firstName string
+	lastName string
+	email string
+	numberOfTickets uint
+
+}
 
 // entry point to the complier
 func main() {
@@ -50,7 +58,7 @@ func main() {
 			// call printFirstNames function
 			printFirstNames()
 
-		} else if userTickets > totalConferenceTickets || userTickets > int(remainingTickets) {
+		} else if userTickets > totalConferenceTickets || userTickets > remainingTickets {
 			fmt.Printf("Sorry:( We only have %v tickets remaining. \n", remainingTickets)
 
 		} else {
@@ -81,11 +89,11 @@ func greetUsers() {
 	fmt.Println("Get your tickets here to attend")
 }
 
-func getUserDetails() (string, string, string, int) {
+func getUserDetails() (string, string, string, uint) {
 	var firstName, lastName, email string
 	//var lastName string
 	//var email string    // get the user name of the user
-	var userTickets int // get how many tickets user needs
+	var userTickets uint // get how many tickets user needs
 
 	fmt.Println("Enter your first Name")
 	fmt.Scan(&firstName) // get the input from the users.
@@ -109,24 +117,32 @@ func printFirstNames() {
 	//for index, fullName := range bookings{
 	for _, booking := range bookings { // "_" blank identifier, ignore a variable that is unused
 		
-		firstNames = append(firstNames,booking["firstName"])
+		firstNames = append(firstNames,booking.firstName)
 	}
 	fmt.Printf("The first names of bookings %v\n", firstNames)
 	fmt.Printf("These are all our bookings %v\n", bookings)
 }
 
-func bookTicket(firstName string, lastName string, email string, userTickets int) {
+func bookTicket(firstName string, lastName string, email string, userTickets uint) {
 
 	// logic of this app
 	remainingTickets = remainingTickets - uint(userTickets)
 
 	// create a empty map to store user's details
-	var userData = make(map[string]string)      // make() : to create empty map
+	// var userData = make(map[string]string)      // make() : to create empty map
 	
-	userData["firstName"] = firstName
-	userData["lastName"] = lastName
-	userData["email"] = email
-	userData["numberOfTickets"] = strconv.FormatUint(uint64(userTickets), 10) 
+	// creating from struct
+	var userData = UserData{
+		firstName: firstName,
+		lastName: lastName,
+		email: email,
+		numberOfTickets: userTickets,
+	}
+
+	// userData["firstName"] = firstName
+	// userData["lastName"] = lastName
+	// userData["email"] = email
+	// userData["numberOfTickets"] = strconv.FormatUint(uint64(userTickets), 10) 
 
 	bookings = append(bookings, userData) // adding elements to "slices"
 
