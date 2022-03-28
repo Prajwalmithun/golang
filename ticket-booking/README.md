@@ -115,9 +115,20 @@ Final goal = Build a Conference Ticket booking App
 [Commit ID for Day 11](https://t.co/GxWqkGeIro)
 
 [Twitter Thread](https://twitter.com/vanquisher3498/status/1507604164754362368)
+
 ## Day 12 
 
+1. Goroutines - For concurrency
+
+2. Synchronizing the GoRoutines
+
+[Commit ID for Day 12](https://t.co/XAFyW1CH8b)
+
+[Twitter Thread](https://twitter.com/vanquisher3498/status/1508405171532939267)
+
 ## Day 13 
+
+1. Channels - Communication between 1 subroutine with another subroutine
 
 ## Day 14 
 
