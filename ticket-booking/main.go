@@ -6,6 +6,8 @@ package main //"main" just a standard way, but it can be anything
 
 import (
 	"fmt" //fmt is builtin package for formating, like displaying output to std output
+	"time"
+	"sync"
 )
 
 // package level variables
@@ -38,6 +40,9 @@ type UserData struct {
 
 }
 
+// Creating a wait group for sync main thread with all goroutines.
+var wg = sync.WaitGroup{}
+
 // entry point to the complier
 func main() {
 
@@ -54,6 +59,12 @@ func main() {
 
 			// call bookTicket function
 			bookTicket(firstName, lastName, email, userTickets)
+			
+
+			wg.Add(1)
+
+			// goroutine -> for running the ticket generation and sending tickets in background
+			go sendTicket(userTickets,firstName,lastName,email)
 
 			// call printFirstNames function
 			printFirstNames()
@@ -81,6 +92,7 @@ func main() {
 	if remainingTickets == 0 {
 		fmt.Printf("Tickets are sold out, see you next year\n")
 	}
+	wg.Wait()
 }
 
 func greetUsers() {
@@ -151,3 +163,22 @@ func bookTicket(firstName string, lastName string, email string, userTickets uin
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation to your email %v\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v remaining tickets.\n", remainingTickets)
 }
+
+// this function is for generating tickets, sending the generated tickets to customers.
+// As we see, this takes a while to process the above tasks.
+func sendTicket(userTickets uint, firstName string, lastName string, email string){
+	var ticket = fmt.Sprintf("%v tickets  for %v %v ", userTickets, firstName, lastName)
+
+	// adding a delay for tickets generation and sending
+	fmt.Printf("Generating Ticket...Please wait...\n") 
+	time.Sleep(5 * time.Second)        // 5sec delay
+
+	fmt.Printf("Sending the Tickets...\n")
+	time.Sleep(5 * time.Second)   // 5 sec delay
+
+	fmt.Println("###########################")
+	fmt.Printf("Sent %v to email address: %v\n",ticket,email)
+	fmt.Println("###########################")
+
+	wg.Done()
+	}	
