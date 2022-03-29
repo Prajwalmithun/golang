@@ -128,9 +128,15 @@ Final goal = Build a Conference Ticket booking App
 
 ## Day 13 
 
-1. Channels - Communication between 1 subroutine with another subroutine
+1. Build and Install Go Programs
+
+[Commit ID for Day 13]()
+
+[Twitter Thread](https://twitter.com/vanquisher3498/status/1508690992244830209)
 
 ## Day 14 
+
+1. Channels - Communication between 1 subroutine with another subroutine
 
 ## Day 15 
 
