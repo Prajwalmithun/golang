@@ -136,13 +136,31 @@ Final goal = Build a Conference Ticket booking App
 
 ## Day 14 
 
-1. Channels - Communication between 1 subroutine with another subroutine
+1. Slack Setup - Need to write a blog after completing Hitesh's course
+
+[Twitter Thread](https://twitter.com/vanquisher3498/status/1509250326633000962)
 
 ## Day 15 
 
+1. Race Condition - Problem
+
+2. Mutex - Solution
+
+[Commit ID for Day 15](https://gist.github.com/Prajwalmithun/c7f26f2ef868da1e03c9be2571950cc9)
+
+[Twitter Thread](https://twitter.com/vanquisher3498/status/1509525037052620802)
+
 ## Day 16 
 
+1. Time Formatting in Golang
+
+[Commit ID]()
+
+[Twitter Thread](https://twitter.com/vanquisher3498/status/1510890387384111106)
+
 ## Day 17 
+
+1. Channels - Communication between 1 subroutine with another subroutine
 
 ## Day 18 
 
