@@ -160,9 +160,15 @@ Final goal = Build a Conference Ticket booking App
 
 ## Day 17 
 
-1. Channels - Communication between 1 subroutine with another subroutine
+1. Memory Management
+
+Learnt more on Pointers, Arrays, Slices
+
+[Twitter Thread](https://twitter.com/vanquisher3498/status/1511353854742638593)
 
 ## Day 18 
+
+1. Channels - Communication between 1 subroutine with another subroutine
 
 ## Day 19 
 
