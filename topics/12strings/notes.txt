@@ -1,0 +1,5 @@
+strings.ToUpper()
+strings.ToLower()
+strings.Repeat()
+strings.ReplaceAll()
+strings.TrimSpace()

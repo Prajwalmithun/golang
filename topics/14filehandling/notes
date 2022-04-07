@@ -1,0 +1,8 @@
+os.Create() : Create file 
+os.Remove() : delete file 
+os.Stat()   : metadata about the file 
+
+io.WriteString()  : write contents into file 
+
+ioutil.ReadFile() : Read contents from file 
+
