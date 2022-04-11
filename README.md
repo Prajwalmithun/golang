@@ -176,6 +176,12 @@ Learnt more on Pointers, Arrays, Slices
 
 ## Day 21 
 
+1. Encode and Decode JSON data (json package)
+
+[Twitter Thread]()
+
+[Commit ID]()
+
 ## Day 22 
 
 ## Day 23 

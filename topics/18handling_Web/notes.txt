@@ -1,0 +1,2 @@
+1. Run fastAPI server
+2. Run our golang program
